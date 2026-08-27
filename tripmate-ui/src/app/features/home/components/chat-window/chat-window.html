@@ -1,0 +1,41 @@
+<div class="chat-area">
+
+    @for (msg of messages(); track $index) {
+
+        <div class="message-row" [class.user-row]="msg.role === 'user'">
+
+            <div class="avatar" [class.user-avatar]="msg.role === 'user'">
+                @if (msg.role === 'assistant') {
+                    🤖
+                } @else {
+                    👤
+                }
+            </div>
+
+            <div class="bubble" [class.user-bubble]="msg.role === 'user'">
+                {{ msg.content }}
+            </div>
+
+        </div>
+
+    }
+
+    @if (loading()) {
+
+        <div class="message-row">
+
+            <div class="avatar">
+                🤖
+            </div>
+
+            <div class="bubble typing-bubble">
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+
+        </div>
+
+    }
+
+</div>

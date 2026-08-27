@@ -1,0 +1,98 @@
+.chat-area {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  min-height: 260px;
+}
+
+.message-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  max-width: 88%;
+}
+
+.user-row {
+  align-self: flex-end;
+  flex-direction: row-reverse;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.user-avatar {
+  background: #2563EB;
+  color: #FFFFFF;
+  border-color: #2563EB;
+}
+
+.bubble {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 20px;
+  padding: 14px 18px;
+  line-height: 1.7;
+  color: #0F172A;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+}
+
+.user-bubble {
+  background: #2563EB;
+  color: #FFFFFF;
+  border-color: #2563EB;
+}
+
+// typing indicator shown while waiting on the AI response
+.typing-bubble {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 16px 20px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #94A3B8;
+  animation: bounce 1.2s infinite ease-in-out;
+}
+
+.dot:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+.dot:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+@keyframes bounce {
+  0%, 60%, 100% {
+    transform: translateY(0);
+    opacity: 0.6;
+  }
+  30% {
+    transform: translateY(-4px);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .message-row,
+  .user-row {
+    max-width: 100%;
+  }
+
+  .bubble {
+    font-size: 0.95rem;
+  }
+}

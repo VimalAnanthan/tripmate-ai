@@ -1,0 +1,76 @@
+.input-wrapper {
+  position: fixed;
+  left: 50%;
+  bottom: 24px;
+  transform: translateX(-50%);
+  width: min(960px, calc(100vw - 24px));
+  z-index: 10;
+}
+
+.input-box {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 24px;
+  padding: 12px;
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.12);
+}
+
+.input-box textarea {
+  flex: 1;
+  border: none;
+  outline: none;
+  resize: none;
+  min-height: 28px;
+  max-height: 160px;
+  font: inherit;
+  line-height: 1.6;
+  background: transparent;
+  color: #0F172A;
+}
+
+.input-box textarea::placeholder {
+  color: #98A2B3;
+}
+
+.send-btn {
+  width: 52px;
+  height: 52px;
+  border: none;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #2563EB, #7C3AED);
+  color: #FFFFFF;
+  font-size: 1.15rem;
+  cursor: pointer;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.25);
+}
+
+.send-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 28px rgba(37, 99, 235, 0.35);
+}
+
+.send-btn:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  .input-wrapper {
+    width: calc(100vw - 16px);
+    bottom: 12px;
+  }
+
+  .input-box {
+    border-radius: 20px;
+    padding: 10px;
+  }
+
+  .send-btn {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+  }
+}

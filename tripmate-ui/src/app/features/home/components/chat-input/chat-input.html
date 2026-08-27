@@ -1,0 +1,18 @@
+<div class="input-wrapper">
+
+    <div class="input-box">
+
+        <textarea
+            placeholder="Ask anything about your trip..."
+            [value]="text()"
+            (input)="text.set($any($event.target).value)"
+            (keydown.enter)="handleSend(); $event.preventDefault()"
+        ></textarea>
+
+        <button class="send-btn" (click)="handleSend()">
+            ➜
+        </button>
+
+    </div>
+
+</div>

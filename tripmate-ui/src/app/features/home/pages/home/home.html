@@ -1,0 +1,50 @@
+<div class="home-wrapper">
+
+    <div class="hero-section">
+
+        <div class="logo-circle">
+            🌍
+        </div>
+
+        <h1>TripMate AI</h1>
+
+        <p class="tagline">
+            Your personal AI travel assistant
+        </p>
+
+        <p class="description">
+            Ask anything about your next adventure — weather, itineraries,
+            budgets, hotels, hidden gems, or the best time to visit.
+        </p>
+
+    </div>
+
+    <div class="suggestion-grid">
+
+        <button class="suggestion-chip" (click)="sendMessage('Is this the best time to visit Ooty?')">
+            <span>🌦️</span>
+            <span>Best time to visit Ooty</span>
+        </button>
+
+        <button class="suggestion-chip" (click)="sendMessage('Plan a 3-day trip to Munnar')">
+            <span>🗺️</span>
+            <span>Plan a 3-day Munnar trip</span>
+        </button>
+
+        <button class="suggestion-chip" (click)="sendMessage('Estimate my budget for Goa')">
+            <span>💰</span>
+            <span>Estimate Goa budget</span>
+        </button>
+
+        <button class="suggestion-chip" (click)="sendMessage('Find hotels near Kodaikanal Lake')">
+            <span>🏨</span>
+            <span>Hotels near Kodaikanal Lake</span>
+        </button>
+
+    </div>
+
+    <app-chat-window [messages]="messages()" [loading]="loading()" />
+
+    <app-chat-input (send)="sendMessage($event)" />
+
+</div>
