@@ -1,10 +1,7 @@
-.input-wrapper {
-  position: fixed;
-  left: 50%;
-  bottom: 24px;
-  transform: translateX(-50%);
-  width: min(960px, calc(100vw - 24px));
-  z-index: 10;
+:host {
+  display: block;
+  flex-shrink: 0;
+  padding: 12px 0 20px;
 }
 
 .input-box {
@@ -53,16 +50,7 @@
   box-shadow: 0 12px 28px rgba(37, 99, 235, 0.35);
 }
 
-.send-btn:active {
-  transform: translateY(0);
-}
-
 @media (max-width: 768px) {
-  .input-wrapper {
-    width: calc(100vw - 16px);
-    bottom: 12px;
-  }
-
   .input-box {
     border-radius: 20px;
     padding: 10px;

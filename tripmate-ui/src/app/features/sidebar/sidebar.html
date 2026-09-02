@@ -1,0 +1,40 @@
+<div class="sidebar">
+
+    <button class="new-chat-btn" (click)="startNewChat()">
+        + New Chat
+    </button>
+
+    <input
+        class="search-box"
+        type="text"
+        placeholder="Search conversations..."
+        [value]="search()"
+        (input)="onSearchInput($any($event.target).value)"
+    />
+
+    <div class="conversation-list">
+
+        @for (conv of conversations(); track conv.id) {
+
+            <button
+                class="conversation-item"
+                [class.active]="conv.id === activeConversationId()"
+                (click)="selectConversation(conv.id)"
+            >
+                <span class="conv-title">{{ conv.title }}</span>
+                <span class="conv-time">{{ timeAgo(conv.updatedAt) }}</span>
+            </button>
+
+        } @empty {
+            <p class="empty-state">No conversations yet</p>
+        }
+
+        @if (hasMore()) {
+            <button class="load-more-btn" (click)="loadMore()" [disabled]="loading()">
+                {{ loading() ? 'Loading...' : 'Load more' }}
+            </button>
+        }
+
+    </div>
+
+</div>

@@ -11,7 +11,7 @@ import { environment } from "../../../environments/environment.development";
 export class ChatService {
     private http = inject(HttpClient);
 
-    sendMessage(message: string): Observable<ChatResponse> {
-        return this.http.post<ChatResponse>(`${environment.apiUrl}/chat`, { message });
+    sendMessage(message: string, conversationId?: number): Observable<ChatResponse> {
+        return this.http.post<ChatResponse>(`${environment.apiUrl}/chat`, { message, conversationId });
     }
 }

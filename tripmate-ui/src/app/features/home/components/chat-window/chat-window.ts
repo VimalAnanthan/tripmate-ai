@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, effect, ElementRef, input, ViewChild } from '@angular/core';
 import { ChatMessage } from '../../../../models/chat-message-model';
 
 @Component({
@@ -12,4 +12,14 @@ export class ChatWindow {
   // this component never talks to ChatService directly — it just renders what it's given.
   messages = input<ChatMessage[]>([]);
   loading = input<boolean>(false);
+
+  @ViewChild('scrollAnchor') scrollAnchor?: ElementRef<HTMLDivElement>;
+
+  constructor() {
+    effect(() => {
+      this.messages();
+      this.loading();
+      queueMicrotask(() => this.scrollAnchor?.nativeElement?.scrollIntoView({ behavior: 'smooth'}))
+    })
+  }
 }

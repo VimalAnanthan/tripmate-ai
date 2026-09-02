@@ -1,8 +1,19 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0; // THE fix — without this, flex:1 + overflow-y:auto below does nothing
+  overflow: hidden;
+}
+
 .chat-area {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
   display: flex;
   flex-direction: column;
   gap: 18px;
-  min-height: 260px;
+  padding: 12px 4px 24px;
 }
 
 .message-row {
@@ -95,4 +106,27 @@
   .bubble {
     font-size: 0.95rem;
   }
+}
+
+.chat-area::-webkit-scrollbar {
+  width: 8px;
+}
+
+.chat-area::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.chat-area::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 8px;
+}
+
+.chat-area::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
+}
+
+// Firefox uses a different, simpler API — no arrow buttons possible there anyway
+.chat-area {
+  scrollbar-width: thin;
+  scrollbar-color: #CBD5E1 transparent;
 }
